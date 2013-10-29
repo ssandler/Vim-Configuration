@@ -84,15 +84,20 @@ if has("gui_running")
     endif
 else
     " All console-specific settings. -----------------------------------------
-    colorscheme xoria256
+   "" colorscheme xoria256
+    set background=dark
+    let g:solarized_underline=0         "default value is 1
+    let g:solarized_visibility="normal"    "default value is normal
+    colorscheme solarized
+
 
     if !filewritable("/tmp/vim_backups")
         call mkdir("/tmp/vim_backups")
     endif
     set backupdir=/tmp/vim_backups
     set dir=/tmp/vim_backups
-    let g:Reference_File_Location='~/u/reference'
-    let g:Todo_List_Location='~/Dropbox/TODO.txt'
+    "let g:Reference_File_Location='~/u/reference'
+    "let g:Todo_List_Location='~/Dropbox/TODO.txt'
 
     if v:version > 702
         " Only for versions above 7.2 where these features are available.

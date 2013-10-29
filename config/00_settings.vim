@@ -2,7 +2,7 @@
 set autoindent              " Maintain indent levels automatically.
 set backspace=2             " Allow backspacing in basically every possible
                             " situation (the way I like it).
-set foldcolumn=4            " Show a 4-column gutter to the left for
+set foldcolumn=1            " Show a 4-column gutter to the left for
                             " folding characters.
 set foldmethod=marker       " Fold on markers; {{{ and }}} by default.
 set formatoptions=tqnw      " Auto-wrap by tw, allow 'gq', recognize lists,
@@ -14,12 +14,12 @@ set textwidth=0             " By default, don't wrap at any specific
                             " column.
 set linebreak wrap          " Wrap text while typing (this is a soft wrap
                             " without textwidth set).
-set mouse=a                 " Allow use of the mouse in all situations.
+set mouse-=a                 " Allow use of the mouse in all situations.
 set nu                      " Use line numbering.
 set shiftwidth=4            " That means I like to indent by that amount as
                             " well.
 set showcmd                 " Show commands as I am typing them.
-set ts=4                    " The best tab stop is 4.
+set ts=2                    " The best tab stop is 2.
 set whichwrap=h,l,~,[,]     " These keys will move the cursor over line
                             " boundaries ('wrap').
 set wildmenu                " Tab completion for files with horizontal list
@@ -97,12 +97,15 @@ let g:quicktask_snip_win_maximize = 1
 let g:quicktask_snip_default_filetype = "markdown"
 
 " -------------------------------- Snippets ----------------------------------
-let g:snips_author = 'Aaron Bieber <abieber@wayfair.com>'
+let g:snips_author = 'Scott Sandler <ssandler@wayfair.com>'
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]
 let g:UltiSnipsDontReverseSearchPath = "1"
 
 " -------------------------------- Syntastic ---------------------------------
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_puppet_checkers = ['puppetlint']
+let g:syntastic_puppet_lint_args = '--fail-on-warnings --with-context --no-selector_inside_resource-check --no-80chars-check --no-autoloader_layout-check --no-class_inherits_from_params_class-check'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 

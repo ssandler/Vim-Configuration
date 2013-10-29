@@ -15,8 +15,8 @@ let g:lightline = {
       \   'mode': 'LLMode',
       \   'commit-tracker': 'LLCommitTracker'
       \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ 'separator': { 'left': '<', 'right': '>' },
+      \ 'subseparator': { 'left': '<', 'right': '>' }
       \ }
 
 function! LLCommitTracker()
@@ -37,20 +37,20 @@ function! LLModified()
 endfunction
 
 function! LLReadOnly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
+  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '!' : ''
 endfunction
 
 function! LLFilename()
   return ('' != LLReadOnly() ? LLReadOnly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
-        \  &ft == 'unite' ? unite#get_status_string() : 
-        \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') : 
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
         \ '' != expand('%t') ? expand('%t') : '[No Name]') .
         \ ('' != LLModified() ? ' ' . LLModified() : '')
 endfunction
 
 function! LLFugitive()
-  return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head()) ? '⭠ '.fugitive#head() : ''
+  return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head()) ? '| '.fugitive#head() : ''
 endfunction
 
 function! LLFileFormat()
