@@ -105,9 +105,10 @@ let g:UltiSnipsDontReverseSearchPath = "1"
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_puppet_checkers = ['puppetlint']
-let g:syntastic_puppet_lint_args = '--fail-on-warnings --with-context --no-selector_inside_resource-check --no-80chars-check --no-autoloader_layout-check --no-class_inherits_from_params_class-check'
+let g:syntastic_puppet_puppetlint_args = '--fail-on-warnings --with-context --no-selector_inside_resource-check --no-80chars-check --no-autoloader_layout-check --no-class_inherits_from_params_class-check'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_auto_loc_list=1
 
 let g:syntastic_php_phpcs_errorformat =
     \ '%-GFile\,Line\,Column\,Type\,Message\,Source\,Severity,'.
